@@ -67,9 +67,32 @@ width:80%;
 </head>
 <body>
 
-<!-- AUDIO -->
-<audio id="music" src="photograph.mp3.mp3"></audio>
+--<!-- AUDIO -->
+--<audio id="music" src="photograph.mp3.mp3"></audio>
 
+  <audio id="musica" loop preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startMusic() {
+  const audio = document.getElementById("musica");
+  audio.volume = 0.8;
+
+  audio.play().then(() => {
+    console.log("Música iniciada");
+  }).catch(error => {
+    console.log("Autoplay bloqueado");
+  });
+}
+
+// Inicia cuando tocan el botón de entrar
+function startInvitation(){
+  document.getElementById("intro").style.display="none";
+  document.getElementById("main").style.display="flex";
+  startMusic();
+}
+</script>
 <!-- FASE 1 -->
 <div class="section" id="intro">
 <h1 class="silver-title">MIS XV AÑOS</h1>
@@ -158,5 +181,6 @@ setInterval(updateCountdown,1000);
 
 </body>
 </html>
+
 
 
