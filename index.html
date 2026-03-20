@@ -113,17 +113,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const invitado = params.get('invitado') || "Invitado";
 const espacios = parseInt(params.get('espacios')) || 1;
 
-document.getElementById("espaciosText").innerText =
-"Espacios reservados para ti: " + espacios;
-
 const select = document.getElementById("asistiran");
+
 for(let i=1;i<=espacios;i++){
-let option = document.createElement("option");
+let option=document.createElement("option");
 option.value=i;
-option.text=i;
+option.text=i+" persona(s)";
 select.appendChild(option);
 }
 
