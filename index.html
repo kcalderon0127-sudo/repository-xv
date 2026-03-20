@@ -191,18 +191,23 @@ const params = new URLSearchParams(window.location.search);
 const invitado = params.get('invitado') || "";
 const espacios = parseInt(params.get('espacios')) || 1;
 
-// AUTOCOMPLETAR NOMBRE
+// CARGA INICIAL
 window.onload = function(){
+
+// AUTOCOMPLETAR NOMBRE
 document.getElementById("nombre").value = invitado;
 
 // GENERAR OPCIONES SEGUN ESPACIOS
 const select = document.getElementById("asistiran");
+select.innerHTML = "";
+
 for(let i=1;i<=espacios;i++){
 let option=document.createElement("option");
 option.value=i;
 option.text=i+" persona(s)";
 select.appendChild(option);
 }
+
 }
 
 // FUNCIONES
@@ -246,13 +251,10 @@ Nombre: ${nombre}
 Cantidad de personas: ${cantidad}`;
 
 window.open(`https://wa.me/50683466734?text=${encodeURIComponent(mensaje)}`);
+
 }
 
 </script>
 
 </body>
 </html>
-
-
-
-
