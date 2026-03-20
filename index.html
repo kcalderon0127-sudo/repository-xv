@@ -103,6 +103,22 @@ border:none;
 width:80%;
 }
 
+/* COUNTDOWN */
+.countdown{
+display:flex;
+gap:15px;
+margin-top:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.count-box{
+border:1px solid #aaa;
+padding:10px;
+border-radius:10px;
+min-width:70px;
+}
+
 </style>
 </head>
 
@@ -125,6 +141,9 @@ width:80%;
 <h2 class="silver-title">Valentina Calderón Vega</h2>
 
 <img src="Foto3.png" style="width:90%;border-radius:20px;">
+
+<!-- CUENTA REGRESIVA -->
+<div id="countdown" class="countdown"></div>
 
 <p>
 03 de octubre de 2026<br>
@@ -194,10 +213,8 @@ const espacios = parseInt(params.get('espacios')) || 1;
 // CARGA INICIAL
 window.onload = function(){
 
-// AUTOCOMPLETAR NOMBRE
 document.getElementById("nombre").value = invitado;
 
-// GENERAR OPCIONES SEGUN ESPACIOS
 const select = document.getElementById("asistiran");
 select.innerHTML = "";
 
@@ -253,6 +270,34 @@ Cantidad de personas: ${cantidad}`;
 window.open(`https://wa.me/50683466734?text=${encodeURIComponent(mensaje)}`);
 
 }
+
+// COUNTDOWN
+function updateCountdown(){
+
+const eventDate = new Date("Oct 3, 2026 17:00:00").getTime();
+const now = new Date().getTime();
+const diff = eventDate - now;
+
+if(diff <= 0){
+document.getElementById("countdown").innerHTML = "¡Hoy es el gran día!";
+return;
+}
+
+const days = Math.floor(diff/(1000*60*60*24));
+const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+const seconds = Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML = `
+<div class="count-box">${days} Días</div>
+<div class="count-box">${hours} Hrs</div>
+<div class="count-box">${minutes} Min</div>
+<div class="count-box">${seconds} Seg</div>
+`;
+
+}
+
+setInterval(updateCountdown,1000);
 
 </script>
 
