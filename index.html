@@ -126,7 +126,7 @@ min-width:70px;
 
 <!-- AUDIO -->
 <audio id="musica" loop preload="auto">
-  <source src="./musica.mp3.mp3" type="audio/mpeg">
+  <source src="./Count_on_Me.mp3" type="audio/mpeg">
 </audio>
 
 <!-- FASE 1 -->
@@ -169,6 +169,10 @@ Pronatura Park
 📸 CARGAR RECUERDOS
 </button>
 
+<button class="btn-premium" onclick="abrirObsequio()">
+🎁 OBSEQUIO
+</button>
+
 </div>
 
 </div>
@@ -179,9 +183,9 @@ Pronatura Park
 <span class="close" onclick="cerrarDressCode()">&times;</span>
 <h2 class="silver-title">Código de Vestimenta</h2>
 <p>
-Formal elegante<br><br>
-Tonos plateados, grises o claros<br><br>
-Evitar blanco
+Formal<br><br>
+Colores exclusivos de la quinceañera:<br><br>
+blanco, rojo y plateado
 </p>
 </div>
 </div>
@@ -202,6 +206,23 @@ Enviar Confirmación
 
 </div>
 </div>
+
+
+<!-- MODAL OBSEQUIO -->
+<div id="giftModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="cerrarObsequio()">&times;</span>
+<h2 class="silver-title">🎁 Obsequio</h2>
+<p style="font-size:18px;line-height:1.8;">
+Tu presencia será nuestro mejor regalo.
+<br><br>
+Si deseas tener un detalle adicional,
+cualquier muestra de cariño en efectivo
+será bien recibida.
+</p>
+</div>
+</div>
+
 
 <script>
 
@@ -298,6 +319,15 @@ document.getElementById("countdown").innerHTML = `
 }
 
 setInterval(updateCountdown,1000);
+
+function abrirObsequio(){
+document.getElementById("giftModal").style.display="flex";
+}
+
+function cerrarObsequio(){
+document.getElementById("giftModal").style.display="none";
+}
+
 
 </script>
 
